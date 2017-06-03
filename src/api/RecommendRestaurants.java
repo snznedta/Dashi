@@ -1,6 +1,7 @@
 package api;
 
 import db.DBConnection;
+import db.MongoDBConnection;
 import db.MySQLDBConnection;
 import org.json.JSONArray;
 
@@ -26,6 +27,7 @@ public class RecommendRestaurants extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     private static DBConnection connection = new MySQLDBConnection();
+    //private static DBConnection connection = new MongoDBConnection();
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

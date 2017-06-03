@@ -1,6 +1,7 @@
 package api;
 
 import db.DBConnection;
+import db.MongoDBConnection;
 import db.MySQLDBConnection;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,9 +23,10 @@ import java.util.Set;
 @WebServlet("/history")
 public class VisitHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private DBConnection connection = new MySQLDBConnection();
+	private static DBConnection connection = new MySQLDBConnection();
+	//private static DBConnection connection = new MongoDBConnection();
 
-    /**
+	/**
      * @see HttpServlet#HttpServlet()
      */
     public VisitHistory() {

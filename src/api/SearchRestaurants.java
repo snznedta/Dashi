@@ -1,6 +1,7 @@
 package api;
 
 import db.DBConnection;
+import db.MongoDBConnection;
 import db.MySQLDBConnection;
 import org.json.JSONArray;
 
@@ -17,7 +18,8 @@ import java.io.IOException;
 @WebServlet("/restaurants")
 public class SearchRestaurants extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private DBConnection connection = new MySQLDBConnection();
+    private static DBConnection connection = new MySQLDBConnection();
+    //private DBConnection connection = new MongoDBConnection();
 
     /**
      * @see HttpServlet#HttpServlet()
