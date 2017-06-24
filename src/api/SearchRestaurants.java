@@ -4,6 +4,8 @@ import db.DBConnection;
 import db.MongoDBConnection;
 import db.MySQLDBConnection;
 import org.json.JSONArray;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +22,7 @@ public class SearchRestaurants extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static DBConnection connection = new MySQLDBConnection();
     //private DBConnection connection = new MongoDBConnection();
+    private static final Logger LOGGER = Logger.getLogger(SearchRestaurants.class.getName());
 
     /**
      * @see HttpServlet#HttpServlet()
@@ -42,6 +45,7 @@ public class SearchRestaurants extends HttpServlet {
             String user_id = "1111";
             double lat = Double.parseDouble(request.getParameter("lat"));
             double lon = Double.parseDouble(request.getParameter("lon"));
+            LOGGER.log(Level.INFO, "lat:" + lat + ",lon:" + lon);
             array = connection.searchRestaurants(user_id, lat, lon, term);
 
         }
